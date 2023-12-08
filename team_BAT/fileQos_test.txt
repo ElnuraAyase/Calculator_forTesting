@@ -1,5 +1,4 @@
 “The only impossible journey is the one you never begin.”
 
-To jest zmiana Beaty do pliku Tomka 
+To jest zmiana Beaty do pliku Tomka - BEata teraz zmienia co tu ma sie znajdowac 
 
-Test Tomka z command line'a - plik 02
