@@ -1,7 +1,2 @@
 “The only impossible journey is the one you never begin.”
-
-To jest zmiana Beaty do pliku Tomka.
-
-
-Tojest zmiana Beaty do pliku Tomka.... robimy zmiane pliku tego samego z Tomem.
-
+...
