@@ -7,3 +7,5 @@ Les Brown
 “You miss 100% of the shots you don’t take.”  
 
 Wayne Gretzky
+
+Test Tomka z command line'a - plik 01
