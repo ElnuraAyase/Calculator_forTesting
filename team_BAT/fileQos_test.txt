@@ -3,3 +3,5 @@
 To jest zmiana Beaty do pliku Tomka 
 
 Test Tomka z command line'a - plik 02
+
+Test Tomka z InteliJ - plik 02
