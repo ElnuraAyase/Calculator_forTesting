@@ -1,14 +1,11 @@
 Jeżeli robisz to co łatwe, Twoje życie będzie trudne. Jeśli robisz to co trudne, Twoje życie będzie łatwe.
-
 Les Brown
 
-
-
 “You miss 100% of the shots you don’t take.”  
-
 Wayne Gretzky
 
 Test Tomka z command line'a - plik 01
 
 Test Tomka z InteliJ - plik 01
-ZMIANA W IJ
+
+ZMIANA W IJ - popieram

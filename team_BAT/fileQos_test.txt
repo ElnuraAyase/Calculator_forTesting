@@ -10,4 +10,4 @@ To jest zmiana Beaty do pliku Tomka
 
 Test Tomka z InteliJ - plik 02
 
-ZMIANA W IJ 2
+ZMIANA W IJ 2 - popieram
