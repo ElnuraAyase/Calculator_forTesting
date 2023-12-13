@@ -7,4 +7,5 @@ Zmiana Beaty w pliku Tomka :)
 To jest zmiana Beaty do pliku Tomka
 
 Test Tomka z InteliJ - plik 02
+
 ZMIANA W IJ 2
