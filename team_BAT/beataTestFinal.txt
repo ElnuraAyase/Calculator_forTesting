@@ -11,3 +11,5 @@ Wayne Gretzky
 Test Tomka z command line'a - plik 01
 
 Test Tomka z InteliJ - plik 01
+
+ZMIANA W IJ
