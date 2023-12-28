@@ -1,0 +1,40 @@
+// 1
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="true" thread-count="2">
+    <test name="test1">
+
+        <classes>
+            <class name="parallerTesting.ParallerTest1">
+
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
+// 2
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+    <parameter name="browser" value="chrome">
+    </parameter>
+    <parameter name="url" value="https://opensource-demo.orangehrmlive.com/">
+
+    </parameter>
+    <test name="parametertest ">
+
+
+        <classes>
+            <class name="ParametersExample">
+
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
