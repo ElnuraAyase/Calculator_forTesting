@@ -8,6 +8,7 @@ public class Zadanie_1 {
 
 
         Scanner chooseLanguage = new Scanner(System.in);
+
         System.out.println("Please choose language for ENG 1 , for POL 2");
         try {
 
@@ -27,11 +28,12 @@ public class Zadanie_1 {
                 System.out.println("Please enter correct number ENG- 1 or PL- 2");
             }
 
-            chooseLanguage.close();
+
         } catch (InputMismatchException e) {
             System.out.println("Please enter a correct number ");
 
         }
+        chooseLanguage.close();
     }
 
 
@@ -59,18 +61,18 @@ public class Zadanie_1 {
     public static void langPL() {
 
         Scanner enterMonthPL = new Scanner(System.in);
-        System.out.println("Wprowadz numer od 1 do 12");
+        System.out.println("Enter number from 1 to 12");
         try {
             int numberMonth = enterMonthPL.nextInt();
 
             if (numberMonth >= 1 && numberMonth <= 12) {
                 MonthPlEng miesiac = MonthPlEng.getMonthByNumber(numberMonth);
-                System.out.println("Miesiac: " + miesiac.getPolski());
+                System.out.println("Month: " + miesiac.getPolski());
             } else {
-                System.out.println("Wprowadz numer od 1 do 12");
+                System.out.println("Enter number from 1 to 12");
             }
-        }catch (InputMismatchException e){
-            System.out.println("Wprowadz prawidlowy numer");
+        } catch (InputMismatchException e) {
+            System.out.println("Enter number from 1 to 12");
         }
 
     }
