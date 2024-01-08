@@ -1,0 +1,29 @@
+server:
+  port: 8182
+spring:
+  application:
+    name: "payment-microservice"
+  config:
+    import: "configserver:http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8021}/"
+logging:
+  level:
+    com.rekindle.book.store: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true

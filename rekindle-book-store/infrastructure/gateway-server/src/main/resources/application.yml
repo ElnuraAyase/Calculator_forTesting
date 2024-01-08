@@ -1,0 +1,37 @@
+server:
+  port: 8024
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${AUTH_HOST:localhost}:${AUTH_PORT:8023}
+  application:
+    name: "gateway-server-ms"
+  config:
+    import: "optional:configserver:http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8021}/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
