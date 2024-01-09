@@ -27,22 +27,13 @@ import lombok.Setter;
 public class BookstoreEntity {
 
   @Id
-  @NotNull
   private UUID bookstoreId;
   @Id
-  @NotNull
   private UUID productId;
-  @NotBlank
-  @NotNull
   private String bookstoreName;
-  @NotNull
   private Boolean bookstoreActive;
-  @NotBlank
-  @NotNull
   private String productName;
-  @NotNull
   private BigDecimal productPrice;
-  @NotNull
   private Boolean productAvailable;
 
   @Override

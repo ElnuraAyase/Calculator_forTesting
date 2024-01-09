@@ -28,14 +28,9 @@ import lombok.Setter;
 public class ProductEntity {
 
   @Id
-  @NotNull
   private UUID id;
-  @NotBlank
-  @NotNull
   private String name;
-  @NotNull
   private BigDecimal price;
-  @NotNull
   private Boolean available;
   @Builder.Default
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "productEntities")

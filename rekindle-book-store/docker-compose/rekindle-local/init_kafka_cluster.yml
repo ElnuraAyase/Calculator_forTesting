@@ -144,7 +144,7 @@ services:
     container_name: kafka-manager
     restart: always
     ports:
-      - "9000:9000"
+      - "39500:39500"
     environment:
       ZK_HOSTS: "zookeeper:2181"
     depends_on:
