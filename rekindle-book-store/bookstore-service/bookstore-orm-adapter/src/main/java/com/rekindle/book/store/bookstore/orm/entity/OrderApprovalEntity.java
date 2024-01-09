@@ -26,14 +26,9 @@ import lombok.Setter;
 public class OrderApprovalEntity {
 
   @Id
-  @NotNull
   private UUID id;
-  @NotNull
   private UUID bookstoreId;
-  @NotNull
   private UUID orderId;
-  @NotBlank
-  @NotNull
   @Enumerated(EnumType.STRING)
   private OrderApprovalStatus status;
 }

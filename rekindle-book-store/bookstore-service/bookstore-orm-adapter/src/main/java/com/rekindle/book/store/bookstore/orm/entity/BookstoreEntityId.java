@@ -17,9 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookstoreEntityId implements Serializable {
-  @NotNull
   private UUID bookstoreId;
-  @NotNull
   private UUID productId;
 
   @Override

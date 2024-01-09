@@ -29,12 +29,8 @@ import lombok.Setter;
 public class BookstoreIdentityEntity {
 
   @Id
-  @NotNull
   private UUID id;
-  @NotBlank
-  @NotNull
   private String name;
-  @NotNull
   private Boolean active;
   @Builder.Default
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

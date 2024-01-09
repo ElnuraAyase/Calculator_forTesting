@@ -5,7 +5,6 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgresqldb-container
-    restart: always
     environment:
       POSTGRES_PASSWORD: admin
       POSTGRES_USER: postgres
@@ -19,7 +18,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - "./volumes/postgre:/var/lib/postgresql/data"
+      - "./volumes/postgre:/var/lib/postgresql/data 777"
     networks:
       rekindle-bookstore-network:
         aliases:
