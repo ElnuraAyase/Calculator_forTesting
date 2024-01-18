@@ -53,14 +53,15 @@ either gradle or ./gradlew
 * <span style="color:cyan;">and execute the following commands
 
 ><li>cd docker-compose/rekindle-local</li>
-><li>docker-compose -f init_kafka_cluster.yml up -d</li>
+><li>docker-compose -f init_kafka_cluster.yml up -d --wait</li>
 
 * <span style="color:cyan;">wait till all services have started
 
 ><li>docker-compose -f init_kafka_topics.yml up</li>
+><li>docker-compose -f init_kafka_topics.yml down</li>
 
 * <span style="color:cyan;">this will add necessary kafka topics to the boostrap servers. Can be
-  deleted afterwards
+  deleted afterwards with down command as it is a one-off operation
 
 #### <span style="color:magenta;"> Database & data migration
 ><li>docker-compose -f init_rekindle_database.yml up -d --wait</li>
@@ -72,7 +73,7 @@ either gradle or ./gradlew
 #### <span style="color:magenta;"> Microservices
 * <span style="color:cyan;">Go to docker-compose/rekindle-local directory
 
-><li>docker-compose -f init_rekindle_app.yml up -d</li>
+><li>docker-compose -f init_rekindle_app.yml up -d --wait</li>
 
 * <span style="color:cyan;">this will start all microservices in sequence where some require kafka
   and the database
@@ -83,6 +84,11 @@ either gradle or ./gradlew
 ><li>docker-compose -f init_kafka_cluster.yml start</li>
 ><li>docker-compose -f init_rekindle_app.yml stop</li>
 ><li>docker-compose -f init_rekindle_app.yml start</li>
+
+* <span style="color:cyan;"> to quickly delete microservice images run
+><li>docker images -a | grep "rekindle" | awk '{print $3}' | xargs docker rmi</li>
+
+
 
 ### <span style="color:magenta;"> THAT'S IT. You're good to go :)
 

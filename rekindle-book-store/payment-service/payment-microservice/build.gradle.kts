@@ -2,7 +2,6 @@ plugins {
     id("rekindle.book.store.java-application-conventions")
     alias { libs.plugins.spring.boot.plugin }
     alias { libs.plugins.spring.dependency.management }
-    alias { libs.plugins.google.jib }
 }
 dependencies {
     implementation(project(":payment-service:payment-application-service"))
@@ -24,7 +23,4 @@ dependencyManagement {
 }
 application {
     mainClass.set("com.rekindle.book.store.payment.microservice.PaymentServiceApplication")
-}
-jib {
-    from.image = "amazoncorretto:21.0.1"
 }

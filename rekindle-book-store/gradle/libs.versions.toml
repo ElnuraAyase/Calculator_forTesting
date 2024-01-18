@@ -15,6 +15,7 @@ spring-cloud-version = "2023.0.0"
 springdoc-webflux-version = "1.7.0"
 
 [libraries]
+com-google-jib = {module = "com.google.cloud.tools.jib:com.google.cloud.tools.jib.gradle.plugin", version.ref = "jib-version"}
 org-apache-avro = { module = "org.apache.avro:avro", version.ref = "apache-avro" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-core" }
 springframework-spring-transactions = { module = "org.springframework:spring-tx", version.ref = "springframework-spring-tx" }
