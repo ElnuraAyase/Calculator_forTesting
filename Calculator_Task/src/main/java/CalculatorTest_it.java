@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
+
 public class CalculatorTest_it {
     BasicOperations basicCalc = new BasicOperations();
 // Happy path test : for add method to check if it returns what is expected
@@ -13,5 +14,12 @@ public class CalculatorTest_it {
     public void  testAdd_HappyPath() { //for call method
     double result = basicCalc.add(2, 3);
     Assert.assertEquals(result, 5);  // Assert gives you methods like assertEquals() to check test result
+    }
+
+    // negative path test: invalid input
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testAdd_InvalidInput(){
+        // assuming that the add method has illegal argument exception
+        basicCalc.add(Double.NaN, 3);
     }
 }
