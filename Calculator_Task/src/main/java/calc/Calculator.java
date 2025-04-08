@@ -1,3 +1,5 @@
+package calc;
+
 public class Calculator {
         private double result; //                      Private variable to store result + could be stored in a different file
 

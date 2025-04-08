@@ -1,9 +1,7 @@
+package calc;
 
-    // Step2: Abstraction (  Hiding implementation detals and providing a clear interface )
+// Step2: Abstraction (  Hiding implementation detals and providing a clear interface )
      public class BasicOperations extends Calculator {
-
-        public BasicOperations() {
-        }
 
         public double add(double a, double b) {
             validateInputs(a, b);

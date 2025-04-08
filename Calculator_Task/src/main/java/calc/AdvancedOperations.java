@@ -1,5 +1,7 @@
+package calc;
+
 // Step 3: Inheritance (Reusing code through class hierarchy)
-class AdvancedOperations extends BasicOperations {  // extras to addition i  order to use OOP princciples
+public class AdvancedOperations extends BasicOperations {  // extras to addition i  order to use OOP princciples
     public double power(double base, double exponent) {
         setResult(Math.pow(base, exponent));
         return getResult();
