@@ -24,7 +24,8 @@ package calc;
         public double divide(double a, double b) {
             validateInputs(a, b);
             if (b != 0) {
-                validateInputs(a, b);setResult(a / b);
+                validateInputs(a, b);
+                setResult(a / b);
             } else {
                 System.out.println("Error: Division by zero");
                 setResult(Double.NaN);
