@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Calculator Test Suite">
+    <test name="Addition Tests">
+        <parameter name="a" value="10"/>
+        <parameter name="b" value="5"/>
+        <classes>
+            <class name="Testing.ParameterizedAddition"/>
+        </classes>
+    </test>
+</suite>
