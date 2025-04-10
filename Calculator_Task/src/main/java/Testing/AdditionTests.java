@@ -1,4 +1,4 @@
-package Testing;
+package testing;
 
 import calc.BasicOperations;
 import org.testng.Assert;

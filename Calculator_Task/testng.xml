@@ -4,7 +4,7 @@
         <parameter name="a" value="10"/>
         <parameter name="b" value="5"/>
         <classes>
-            <class name="Testing.ParameterizedAddition"/>
+            <class name="testing.ParameterizedAddition"/>
         </classes>
     </test>
 </suite>

@@ -1,4 +1,4 @@
-package Testing;//importing test classes for asssertation and annotATIONs
+package testing;//importing test classes for asssertation and annotATIONs
 
 import calc.BasicOperations;
 import org.testng.Assert;

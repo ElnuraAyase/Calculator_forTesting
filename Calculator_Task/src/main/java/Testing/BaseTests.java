@@ -1,4 +1,4 @@
-package Testing;
+package testing;
 //for all tests
 import org.testng.annotations.*; // import all testng annotations instead of 1 by 1
 

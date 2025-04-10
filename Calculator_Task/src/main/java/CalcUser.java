@@ -2,7 +2,7 @@ import calc.AdvancedOperations;
 
 import java.util.Scanner;
 
-// Step1: Encpsulation  (  Hiding data and providing controllled access )
+// Step1: Encapsulation  (  Hiding data and providing controllled access )
 
 
 
