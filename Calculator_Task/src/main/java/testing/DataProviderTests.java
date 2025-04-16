@@ -12,15 +12,8 @@ public class DataProviderTests extends BaseTests{
     @DataProvider(name = "multiplyData")
     public Object [] [] dataProviderExample() {
         /* [] [] used 4 2D array ,
-         SO : if Object [] = 1 set of test values , if Object [] [] = a list of test sets (tavle)
-        each row = one set of test data ,
-        each column = a parameter passed to the test method
-        a	b	expected
-        2	3	6
-        4	5	20
-        1	0	0
-
-         */
+         SO : if Object [] = 1 set of test values , if Object [] [] = a list of test sets (table)
+    */
         return new Object[][]{
                 {2, 3, 6},
                 {4, 5, 20},

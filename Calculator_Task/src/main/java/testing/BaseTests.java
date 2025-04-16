@@ -4,19 +4,6 @@ import org.testng.annotations.*; // import all testng annotations instead of 1 b
 
 public class BaseTests {
 
-    /*@BeforeTest
-
-Runs once before a <test> tag in testng.xml
-
-Not tied to individual classes (less OOP-aligned)
-
-✅ Good for one-time global setup
-
-❌ Not ideal for per-class test logic like in your BaseTest
-     */
-
-
-
     //runs before other test methods run in this class  + only once
     // it's good for shared databases, connection,test,data etc.
     @BeforeClass
