@@ -10,12 +10,14 @@ public class BaseTest {
 
     protected String token = "eyJ0eXAiOiJKV1QiLCJub25jZSI6IkJXTEo2b0F3Tm1Vbk9pTFlDWWt5c18tU0dv..."; // (truncated for clarity)
 
-    @BeforeClass
-    public void setUp() {
-        // Optional: Set base URI here to avoid repeating in every request
-        RestAssured.baseURI = "http://localhost:8183/api/v1";
+    protected String bookstoreEndpoint = "http://localhost:8183/api/v1";
+    protected String customerEndpoint = "http://localhost:8184/api/v1";
+    protected String ordersEndpoint = "http://localhost:8181/api/v1";
+    protected String paymentsEndpoint = "http://localhost:8182/api/v1";
 
-        // Optional: Accept self-signed certs (for HTTPS localhost)
-        RestAssured.useRelaxedHTTPSValidation();
-    }
+
+    protected static  String createdBookstoreId;
+    protected static  String createdCustomerId;
+    protected static  String createdPurchaseId;
+    protected static  String createdPaymentId;
 }

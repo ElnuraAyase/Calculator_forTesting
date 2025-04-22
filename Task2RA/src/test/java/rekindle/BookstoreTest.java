@@ -1,8 +1,10 @@
 package rekindle;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.http.ContentType;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
@@ -14,7 +16,11 @@ import static io.restassured.RestAssured.*;
  */
 public class BookstoreTest extends BaseTest {
 
-    private static  String createdBookstoreId;  // added variable to hold ID for post put and delete
+    @BeforeClass
+    void setUpURI(){
+        RestAssured.baseURI = bookstoreEndpoint;
+    }
+
 
     @Test
     public void fetchAllBookStores() {  // get 3
@@ -44,7 +50,7 @@ public class BookstoreTest extends BaseTest {
         Assert.assertEquals(response.getStatusCode(), 200); // 200 OK expected
     }
 
-    @Test(dependsOnMethods = {"fetchAllBookStores"})
+    @Test()
     public void createBookStore() {  // post 1
         String requestBody = """
             {
@@ -53,7 +59,7 @@ public class BookstoreTest extends BaseTest {
                 "owner": "Theodore Dreiser",
                 "isActive": true
             }
-        """;
+        """.formatted(createdBookstoreId); //ID is included in json body
 
         Response response = given()
                 .contentType(ContentType.JSON)
@@ -100,12 +106,14 @@ public class BookstoreTest extends BaseTest {
                     .put("/bookstores/" + createdBookstoreId);
 
             response.prettyPrint();
-            Assert.assertEquals(response.getStatusCode(), 200); //checked
-
+        Assert.assertTrue(
+                 response.getStatusCode() == 204
+        );
+        // it was an error only with ==200 , so I added ==204
 
     }
 
-    @Test(dependsOnMethods = {"updateBookStoreById"})
+    @Test(dependsOnMethods = {"updateBookStoreById", "deleteProductById"}) // can not delete product if the bookstore was deleted before , so  added "deleteProductId"
     public void deleteBookStoreId() { //delete 1
 
         Response response = given()
@@ -116,8 +124,111 @@ public class BookstoreTest extends BaseTest {
 
         response.prettyPrint();
         Assert.assertTrue(
-                response.getStatusCode() == 200 || response.getStatusCode() == 204
+                response.getStatusCode() == 204
         );
 
     }
+
+
+    private static String createdProductId;  // var to hold the ID for post,delete put
+    // GET all products
+    @Test
+    public void fetchAllProducts() {  // get all products
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .get("/bookstores/product"); // Fetching all products
+
+        response.prettyPrint();
+        Assert.assertEquals(response.getStatusCode(), 200); // 200 OK expected
+    }
+
+
+    // POST a new product
+    @Test(dependsOnMethods = {"createBookStore"})
+    public void createProduct() {  // post - new product
+        String requestBody = """
+            {
+                "name": "New Product",
+                "category": "Books",
+                "price": 19.99,
+                "isActive": true,
+                "available": true
+            }
+        """;
+
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
+                .body(requestBody.toString())
+                .when()
+                .post("bookstores/"+ createdBookstoreId + "/product"); // POST for new product
+
+        response.prettyPrint();
+        Assert.assertEquals(response.getStatusCode(), 201); // 201 Created expected
+
+        // Save the returned product ID for future updates and deletions
+        String rawId = response.asString();
+        createdProductId = rawId.replace("\"", ""); // remove the surrounding quotes
+
+        System.out.println(createdProductId);
+    }
+
+
+    // GET product by ID
+    @Test(dependsOnMethods = {"fetchAllProducts"})
+    public void fetchProductById() {  // get product by ID
+        String productId = "d215b5f8-0249-4dc5-89a3-51fd148cfb47";  // Some product ID for testing
+
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .get("bookstores/product/" + productId); // Fetch spec product by ID
+
+        response.prettyPrint();
+        Assert.assertEquals(response.getStatusCode(), 200); // 200 OK expected
+    }
+
+    //deleted the post from here to change
+
+    // PUT (update) product by ID
+    @Test(dependsOnMethods = {"createProduct"})
+    public void updateProductById() {  // put (update) product
+        String updatedProductBody = """
+            {
+                "name": "Updated Product Name",
+                "price": 29.99,
+                "available": true
+            }
+        """;
+
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
+                .body(updatedProductBody)
+                .when()
+                .put("/bookstores/product/" + createdProductId); // PUT - update the product by ID
+
+        response.prettyPrint();
+        Assert.assertEquals(response.getStatusCode(), 204); // 200 OK expected
+    }
+
+
+    @Test(dependsOnMethods = {"createBookStore","createProduct", "updateProductById"})
+    public void deleteProductById() {  // delete product 10
+        Response response = given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .delete("/bookstores/" + createdBookstoreId + "/product/" + createdProductId); // DELETE
+
+        response.prettyPrint();
+        Assert.assertTrue(
+                response.getStatusCode() == 204
+        ); // 200 OK or 204 No Content expected
+    }
 }
+
+
