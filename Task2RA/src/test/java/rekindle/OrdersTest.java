@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.*;
  */
 public class OrdersTest extends BaseTest {
 
-    // Override setup for specific base URI for this test class
+
     @BeforeClass
     void setUpURI(){
         RestAssured.baseURI = ordersEndpoint;
@@ -48,7 +48,7 @@ public class OrdersTest extends BaseTest {
                 .header("Authorization","Bearer " + token)
                 .body(requestBody)
                 .when()
-                .post("/orders"); // Post request to create a new bookstore
+                .post("/orders");
 
         response.prettyPrint();
         Assert.assertEquals(response.getStatusCode(), 200); // 201 Created expected
@@ -68,7 +68,7 @@ public class OrdersTest extends BaseTest {
                 .contentType(ContentType.JSON)
                 .header("Authorization","Bearer " + token)
                 .when()
-                .get("/orders/" + "6ec2d031-e557-4e18-9cc8-6d5d5208fc02"); // Fetch specific bookstore by ID
+                .get("/orders/" + "6ec2d031-e557-4e18-9cc8-6d5d5208fc02");
 
         response.prettyPrint();
         Assert.assertEquals(response.getStatusCode(), 200); // 200 OK expected

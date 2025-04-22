@@ -38,8 +38,7 @@ public class CustomerTest extends BaseTest {
                 .header("Authorization","Bearer " + token)
                 .body(requestBody)
                 .when()
-                .post("/customers"); // Post request to create a new bookstore
-
+                .post("/customers"); // Post request to create a new cust
         response.prettyPrint();
         Assert.assertEquals(response.getStatusCode(), 201); // 201 Created expected
 
@@ -72,10 +71,10 @@ public class CustomerTest extends BaseTest {
                 .contentType(ContentType.JSON)
                 .header("Authorization","Bearer " + token)
                 .when()
-                .get("/customers/" + createdCustomerId); // Fetch specific bookstore by ID
+                .get("/customers/" + createdCustomerId); // Fetch specific cust by ID
 
         response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode(), 200); // 200 OK expected
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 
     // PUT (update) customers by ID
@@ -95,10 +94,10 @@ public class CustomerTest extends BaseTest {
                 .header("Authorization","Bearer " + token)
                 .body(requestBody)
                 .when()
-                .put("/customers/" + createdCustomerId); // Post request to create a new bookstore
+                .put("/customers/" + createdCustomerId);
 
         response.prettyPrint();
-        Assert.assertEquals(response.getStatusCode(), 204); // 201 Created expected
+        Assert.assertEquals(response.getStatusCode(), 204);
 
         // storing the retunr id from response
 
