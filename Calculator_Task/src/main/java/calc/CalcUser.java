@@ -20,10 +20,10 @@ public class CalcUser {
             String operation = scanner.next().toLowerCase();
             if (operation.equals("exit")) {
                 System.out.println("Exiting calculator...");
-                break;   // here could be used better end for solving the errors if unexpected input
+                break;
             }
 
-            System.out.println("Enter first number:"); // forgot to add ;
+            System.out.println("Enter first number:");
             double num1 = scanner.nextDouble();
             System.out.println("Enter second number:");
             double num2 = scanner.nextDouble();

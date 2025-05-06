@@ -11,9 +11,7 @@ public class Calculator {
             this.result = value; // Protected method to set result
         }
 
-    // need to add NaN (not a Number special constant) that doesn't represent real number
 
-    // shared input validation  + method for loop to implement to eaxch method
     protected void validateInputs(double...values){   // to allowed to be used by child classes  , not used elsewhere
         for(double val : values) {
             if(Double.isNaN(val)) {

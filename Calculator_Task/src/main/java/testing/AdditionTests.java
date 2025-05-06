@@ -11,9 +11,9 @@ public class AdditionTests extends BaseTests{
     //PRiority and Group
     @Test(priority = 1, groups = {"int", "basic"})
     public void testAddIntegers(){
-        double result = calc.add(2,3);
+        double result = calc.add((double)2.0F,(double)3.0F);
         System.out.println( " Integer Addition: 2 + 3 = " + result );
-        Assert.assertEquals(result, 5.0);
+        Assert.assertEquals(result, 5.0, "Addition of 2.0 and 3.0 should return 5.0");
     }
 
     //another priority
@@ -21,6 +21,6 @@ public class AdditionTests extends BaseTests{
     public void testAddDoubles(){
         double result = calc.add(2, 3.3);
         System.out.println(" Double Addition: 2+ 3.3= " + result);
-        Assert.assertEquals(result, 5.3);
+        Assert.assertEquals(result, 5.3, "Addition of 2.0 and 3.0 should return 5.3");
     }
 }
